@@ -15,35 +15,7 @@ services:
     ports:
       - '8001:80'
     container_name: nginx-kkkggs88408ccsskc8woo8s4-030425656098
-    labels:
-      - coolify.managed=true
-      - coolify.version=4.0.0-beta.420.6
-      - coolify.applicationId=16
-      - coolify.type=application
-      - coolify.name=nginx-kkkggs88408ccsskc8woo8s4-030425656098
-      - coolify.resourceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.projectName=satudata-mataram
-      - coolify.serviceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.environmentName=production
-      - coolify.pullRequestId=0
-      - traefik.enable=true
-      - traefik.http.middlewares.gzip.compress=true
-      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
-      - traefik.http.routers.http-0-kkkggs88408ccsskc8woo8s4-nginx.entryPoints=http
-      - traefik.http.routers.http-0-kkkggs88408ccsskc8woo8s4-nginx.middlewares=redirect-to-https
-      - 'traefik.http.routers.http-0-kkkggs88408ccsskc8woo8s4-nginx.rule=Host(`ckan.mataramkota.go.id`) && PathPrefix(`/`)'
-      - traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.entryPoints=https
-      - traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.middlewares=gzip
-      - 'traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.rule=Host(`ckan.mataramkota.go.id`) && PathPrefix(`/`)'
-      - traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.tls.certresolver=letsencrypt
-      - traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.tls=true
-      - 'caddy_0.encode=zstd gzip'
-      - 'caddy_0.handle_path.0_reverse_proxy={{upstreams}}'
-      - 'caddy_0.handle_path=/*'
-      - caddy_0.header=-Server
-      - 'caddy_0.try_files={path} /index.html /index.php'
-      - 'caddy_0=https://ckan.mataramkota.go.id'
-      - caddy_ingress_network=kkkggs88408ccsskc8woo8s4
+    
     environment:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
@@ -75,9 +47,9 @@ services:
       redis:
         condition: service_healthy
     volumes:
-      - 'kkkggs88408ccsskc8woo8s4_ckan-storage:/var/lib/ckan'
-      - 'kkkggs88408ccsskc8woo8s4_pip-cache:/root/.cache/pip'
-      - 'kkkggs88408ccsskc8woo8s4_site-packages:/usr/lib/python3.10/site-packages'
+      - 'ckan-storage:/var/lib/ckan'
+      - 'pip-cache:/root/.cache/pip'
+      - 'site-packages:/usr/lib/python3.10/site-packages'
     restart: unless-stopped
     healthcheck:
       test:
@@ -90,17 +62,6 @@ services:
       timeout: 10s
       retries: 3
     container_name: ckan-kkkggs88408ccsskc8woo8s4-030425660121
-    labels:
-      - coolify.managed=true
-      - coolify.version=4.0.0-beta.420.6
-      - coolify.applicationId=16
-      - coolify.type=application
-      - coolify.name=ckan-kkkggs88408ccsskc8woo8s4-030425660121
-      - coolify.resourceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.projectName=satudata-mataram
-      - coolify.serviceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.environmentName=production
-      - coolify.pullRequestId=0
     environment:
       TZ: '${TZ}'
       COOLIFY_BRANCH: '"master"'
@@ -127,17 +88,6 @@ services:
       timeout: 10s
       retries: 3
     container_name: datapusher-kkkggs88408ccsskc8woo8s4-030425677807
-    labels:
-      - coolify.managed=true
-      - coolify.version=4.0.0-beta.420.6
-      - coolify.applicationId=16
-      - coolify.type=application
-      - coolify.name=datapusher-kkkggs88408ccsskc8woo8s4-030425677807
-      - coolify.resourceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.projectName=satudata-mataram
-      - coolify.serviceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.environmentName=production
-      - coolify.pullRequestId=0
     environment:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
@@ -167,7 +117,7 @@ services:
       SERVICE_URL_NGINX: 'https://ckan.mataramkota.go.id'
       SERVICE_FQDN_NGINX: ckan.mataramkota.go.id
     volumes:
-      - 'kkkggs88408ccsskc8woo8s4_pg-data:/var/lib/postgresql/data'
+      - 'pg-data:/var/lib/postgresql/data'
     restart: unless-stopped
     healthcheck:
       test:
@@ -178,17 +128,6 @@ services:
         - '-d'
         - '${POSTGRES_DB}'
     container_name: db-kkkggs88408ccsskc8woo8s4-030425679479
-    labels:
-      - coolify.managed=true
-      - coolify.version=4.0.0-beta.420.6
-      - coolify.applicationId=16
-      - coolify.type=application
-      - coolify.name=db-kkkggs88408ccsskc8woo8s4-030425679479
-      - coolify.resourceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.projectName=satudata-mataram
-      - coolify.serviceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.environmentName=production
-      - coolify.pullRequestId=0
   solr:
     networks:
       solrnet: null
@@ -196,7 +135,7 @@ services:
       coolify: null
     image: 'ckan/ckan-solr:${SOLR_IMAGE_VERSION}'
     volumes:
-      - 'kkkggs88408ccsskc8woo8s4_solr-data:/var/solr'
+      - 'solr-data:/var/solr'
     restart: unless-stopped
     healthcheck:
       test:
@@ -206,17 +145,6 @@ services:
         - /dev/null
         - 'http://localhost:8983/solr/'
     container_name: solr-kkkggs88408ccsskc8woo8s4-030425699770
-    labels:
-      - coolify.managed=true
-      - coolify.version=4.0.0-beta.420.6
-      - coolify.applicationId=16
-      - coolify.type=application
-      - coolify.name=solr-kkkggs88408ccsskc8woo8s4-030425699770
-      - coolify.resourceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.projectName=satudata-mataram
-      - coolify.serviceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.environmentName=production
-      - coolify.pullRequestId=0
     environment:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
@@ -237,17 +165,6 @@ services:
         - '-e'
         - QUIT
     container_name: redis-kkkggs88408ccsskc8woo8s4-030425704723
-    labels:
-      - coolify.managed=true
-      - coolify.version=4.0.0-beta.420.6
-      - coolify.applicationId=16
-      - coolify.type=application
-      - coolify.name=redis-kkkggs88408ccsskc8woo8s4-030425704723
-      - coolify.resourceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.projectName=satudata-mataram
-      - coolify.serviceName=pimensckan-dockmaster-io0o404cookw0wok0480044s
-      - coolify.environmentName=production
-      - coolify.pullRequestId=0
     environment:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
@@ -255,16 +172,16 @@ services:
       SERVICE_URL_NGINX: 'https://ckan.mataramkota.go.id'
       SERVICE_FQDN_NGINX: ckan.mataramkota.go.id
 volumes:
-  kkkggs88408ccsskc8woo8s4_ckan-storage:
-    name: kkkggs88408ccsskc8woo8s4_ckan-storage
-  kkkggs88408ccsskc8woo8s4_pip-cache:
-    name: kkkggs88408ccsskc8woo8s4_pip-cache
-  kkkggs88408ccsskc8woo8s4_site-packages:
-    name: kkkggs88408ccsskc8woo8s4_site-packages
-  kkkggs88408ccsskc8woo8s4_pg-data:
-    name: kkkggs88408ccsskc8woo8s4_pg-data
-  kkkggs88408ccsskc8woo8s4_solr-data:
-    name: kkkggs88408ccsskc8woo8s4_solr-data
+  ckan-storage:
+    name: ckan-storage
+  pip-cache:
+    name: pip-cache
+  site-packages:
+    name: site-packages
+  pg-data:
+    name: pg-data
+  solr-data:
+    name: solr-data
 networks:
   webnet: null
   ckannet: null
