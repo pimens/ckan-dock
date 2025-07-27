@@ -35,7 +35,6 @@ services:
       - traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.entryPoints=https
       - traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.middlewares=gzip
       - 'traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.rule=Host(`ckan.mataramkota.go.id`) && PathPrefix(`/`)'
-      - traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.tls.certresolver=letsencrypt
       - traefik.http.routers.https-0-kkkggs88408ccsskc8woo8s4-nginx.tls=true
       - 'caddy_0.encode=zstd gzip'
       - 'caddy_0.handle_path.0_reverse_proxy={{upstreams}}'
