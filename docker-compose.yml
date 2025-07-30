@@ -14,12 +14,12 @@ services:
         condition: service_healthy
     ports:
       - '8001:80'
-    container_name: nginx-kkkggs88408ccsskc8woo8s4-030425656098
+    container_name: nginx-kkkggs88408ccsskc8woo8s4
     
     environment:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
-      COOLIFY_CONTAINER_NAME: nginx-kkkggs88408ccsskc8woo8s4-030425656098
+      COOLIFY_CONTAINER_NAME: nginx-kkkggs88408ccsskc8woo8s4
       SERVICE_URL_NGINX: 'https://ckan.mataramkota.go.id'
       SERVICE_FQDN_NGINX: ckan.mataramkota.go.id
       COOLIFY_URL: 'https://ckan.mataramkota.go.id'
@@ -61,12 +61,12 @@ services:
       interval: 60s
       timeout: 10s
       retries: 3
-    container_name: ckan-kkkggs88408ccsskc8woo8s4-030425660121
+    container_name: ckan-kkkggs88408ccsskc8woo8s4
     environment:
       TZ: '${TZ}'
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
-      COOLIFY_CONTAINER_NAME: ckan-kkkggs88408ccsskc8woo8s4-030425660121
+      COOLIFY_CONTAINER_NAME: ckan-kkkggs88408ccsskc8woo8s4
       SERVICE_URL_NGINX: 'https://ckan.mataramkota.go.id'
       SERVICE_FQDN_NGINX: ckan.mataramkota.go.id
   datapusher:
@@ -87,7 +87,7 @@ services:
       interval: 60s
       timeout: 10s
       retries: 3
-    container_name: datapusher-kkkggs88408ccsskc8woo8s4-030425677807
+    container_name: datapusher-kkkggs88408ccsskc8woo8s4
     environment:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
@@ -113,7 +113,7 @@ services:
       DATASTORE_DB: datastore
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
-      COOLIFY_CONTAINER_NAME: db-kkkggs88408ccsskc8woo8s4-030425679479
+      COOLIFY_CONTAINER_NAME: db-kkkggs88408ccsskc8woo8s4
       SERVICE_URL_NGINX: 'https://ckan.mataramkota.go.id'
       SERVICE_FQDN_NGINX: ckan.mataramkota.go.id
     volumes:
@@ -127,7 +127,7 @@ services:
         - '${POSTGRES_USER}'
         - '-d'
         - '${POSTGRES_DB}'
-    container_name: db-kkkggs88408ccsskc8woo8s4-030425679479
+    container_name: db-kkkggs88408ccsskc8woo8s4
   solr:
     networks:
       solrnet: null
@@ -144,11 +144,11 @@ services:
         - '-qO'
         - /dev/null
         - 'http://localhost:8983/solr/'
-    container_name: solr-kkkggs88408ccsskc8woo8s4-030425699770
+    container_name: solr-kkkggs88408ccsskc8woo8s4
     environment:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
-      COOLIFY_CONTAINER_NAME: solr-kkkggs88408ccsskc8woo8s4-030425699770
+      COOLIFY_CONTAINER_NAME: solr-kkkggs88408ccsskc8woo8s4
       SERVICE_URL_NGINX: 'https://ckan.mataramkota.go.id'
       SERVICE_FQDN_NGINX: ckan.mataramkota.go.id
   redis:
@@ -164,11 +164,11 @@ services:
         - redis-cli
         - '-e'
         - QUIT
-    container_name: redis-kkkggs88408ccsskc8woo8s4-030425704723
+    container_name: redis-kkkggs88408ccsskc8woo8s4
     environment:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
-      COOLIFY_CONTAINER_NAME: redis-kkkggs88408ccsskc8woo8s4-030425704723
+      COOLIFY_CONTAINER_NAME: redis-kkkggs88408ccsskc8woo8s4
       SERVICE_URL_NGINX: 'https://ckan.mataramkota.go.id'
       SERVICE_FQDN_NGINX: ckan.mataramkota.go.id
 volumes:
