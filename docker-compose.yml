@@ -20,10 +20,10 @@ services:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
       COOLIFY_CONTAINER_NAME: nginx-kkkggs88408ccsskc8woo8s4-030425656098
-      SERVICE_URL_NGINX: 'https://dataset.mataramkota.go.id'
-      SERVICE_FQDN_NGINX: dataset.mataramkota.go.id
-      COOLIFY_URL: 'https://dataset.mataramkota.go.id'
-      COOLIFY_FQDN: dataset.mataramkota.go.id
+      SERVICE_URL_NGINX: 'https://satu-data.mataramkota.go.id'
+      SERVICE_FQDN_NGINX: satu-data.mataramkota.go.id
+      COOLIFY_URL: 'https://satu-data.mataramkota.go.id'
+      COOLIFY_FQDN: satu-data.mataramkota.go.id
   ckan:
     build:
       context: ckan/
@@ -67,8 +67,8 @@ services:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
       COOLIFY_CONTAINER_NAME: ckan-kkkggs88408ccsskc8woo8s4-030425660121
-      SERVICE_URL_NGINX: 'https://dataset.mataramkota.go.id'
-      SERVICE_FQDN_NGINX: dataset.mataramkota.go.id
+      SERVICE_URL_NGINX: 'https://satu-data.mataramkota.go.id'
+      SERVICE_FQDN_NGINX: satu-data.mataramkota.go.id
   datapusher:
     networks:
       ckannet: null
@@ -92,8 +92,8 @@ services:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
       COOLIFY_CONTAINER_NAME: datapusher-kkkggs88408ccsskc8woo8s4-030425677807
-      SERVICE_URL_NGINX: 'https://dataset.mataramkota.go.id'
-      SERVICE_FQDN_NGINX: dataset.mataramkota.go.id
+      SERVICE_URL_NGINX: 'https://satu-data.mataramkota.go.id'
+      SERVICE_FQDN_NGINX: satu-data.mataramkota.go.id
   db:
     build:
       context: postgresql/
@@ -114,8 +114,8 @@ services:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
       COOLIFY_CONTAINER_NAME: db-kkkggs88408ccsskc8woo8s4-030425679479
-      SERVICE_URL_NGINX: 'https://dataset.mataramkota.go.id'
-      SERVICE_FQDN_NGINX: dataset.mataramkota.go.id
+      SERVICE_URL_NGINX: 'https://satu-data.mataramkota.go.id'
+      SERVICE_FQDN_NGINX: satu-data.mataramkota.go.id
     volumes:
       - 'pg-data:/var/lib/postgresql/data'
     restart: unless-stopped
@@ -149,8 +149,8 @@ services:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
       COOLIFY_CONTAINER_NAME: solr-kkkggs88408ccsskc8woo8s4-030425699770
-      SERVICE_URL_NGINX: 'https://dataset.mataramkota.go.id'
-      SERVICE_FQDN_NGINX: dataset.mataramkota.go.id
+      SERVICE_URL_NGINX: 'https://satu-data.mataramkota.go.id'
+      SERVICE_FQDN_NGINX: satu-data.mataramkota.go.id
   redis:
     image: 'redis:${REDIS_VERSION}'
     networks:
@@ -169,8 +169,8 @@ services:
       COOLIFY_BRANCH: '"master"'
       COOLIFY_RESOURCE_UUID: kkkggs88408ccsskc8woo8s4
       COOLIFY_CONTAINER_NAME: redis-kkkggs88408ccsskc8woo8s4-030425704723
-      SERVICE_URL_NGINX: 'https://dataset.mataramkota.go.id'
-      SERVICE_FQDN_NGINX: dataset.mataramkota.go.id
+      SERVICE_URL_NGINX: 'https://satu-data.mataramkota.go.id'
+      SERVICE_FQDN_NGINX: satu-data.mataramkota.go.id
 volumes:
   ckan-storage:
     name: ckan-storage
