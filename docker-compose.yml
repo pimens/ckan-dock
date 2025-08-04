@@ -11,7 +11,7 @@ services:
       ckan:
         condition: service_healthy
     ports:
-      - '8001:80'
+      - '8001:443'
     container_name: nginx-kkkggs88408ccsskc8woo8s4
     environment:
       COOLIFY_BRANCH: '"master"'
