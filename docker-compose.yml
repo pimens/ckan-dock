@@ -256,6 +256,8 @@ volumes:
     name: solr-data
   kkkggs88408ccsskc8woo8s4_ckan-storage:
     name: kkkggs88408ccsskc8woo8s4_ckan-storage
+  kkkggs88408ccsskc8woo8s4_ckan-templates:
+    name: kkkggs88408ccsskc8woo8s4_ckan-templates
   kkkggs88408ccsskc8woo8s4_pip-cache:
     name: kkkggs88408ccsskc8woo8s4_pip-cache
   kkkggs88408ccsskc8woo8s4_site-packages:
