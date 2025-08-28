@@ -3,11 +3,7 @@ FROM nginx:stable-alpine
 ENV NGINX_DIR=/etc/nginx
 USER root
 # Update dan install dependensi yang dibutuhkan (tidak ada openssl)
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.21/main" > /etc/apk/repositories && \
-    echo "https://dl-cdn.alpinelinux.org/alpine/v3.21/community" >> /etc/apk/repositories && \
-    apk update && \
-    apk upgrade && \
-    mkdir -p ${NGINX_DIR}/conf.d
+RUN mkdir -p ${NGINX_DIR}/conf.d
 
 # Salin konfigurasi dan file HTML ke dalam image
 COPY setup/nginx.conf ${NGINX_DIR}/nginx.conf
