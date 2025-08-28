@@ -69,6 +69,7 @@ services:
         condition: service_healthy
     volumes:
       - 'kkkggs88408ccsskc8woo8s4_ckan-storage:/var/lib/ckan'
+      - 'kkkggs88408ccsskc8woo8s4_ckan-templates:/srv/app/src/ckan/ckan/templates'
       - 'kkkggs88408ccsskc8woo8s4_pip-cache:/root/.cache/pip'
       - 'kkkggs88408ccsskc8woo8s4_site-packages:/usr/lib/python3.10/site-packages'
     restart: unless-stopped
