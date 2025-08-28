@@ -1,7 +1,7 @@
 FROM nginx:stable-alpine
 
 ENV NGINX_DIR=/etc/nginx
-
+USER root
 # Update dan install dependensi yang dibutuhkan (tidak ada openssl)
 RUN apk update && \
     apk upgrade && \
